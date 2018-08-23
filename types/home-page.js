@@ -1,0 +1,4 @@
+export default {
+  INITDATA: 'HOMEPAGE:INITDATA',
+  ADDDATA: 'HOMEPAGE:ADDDATA'
+};
