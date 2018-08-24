@@ -9,26 +9,23 @@ import { Areas } from './areas';
 import TabItem from './tab-item';
 
 export default class CitySelector extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
+    index: 0,
+    router: [{
       index: 0,
-      router: [{
-        index: 0,
-        name: '省份'
-      }, {
-        index: 1,
-        name: '城市'
-      }, {
-        index: 2,
-        name: '区域'
-      }],
-      maxIndex: 0,
-      provience: {},
-      city: {},
-      area: {}
-    };
-  }
+      name: '省份'
+    }, {
+      index: 1,
+      name: '城市'
+    }, {
+      index: 2,
+      name: '区域'
+    }],
+    maxIndex: 0,
+    provience: {},
+    city: {},
+    area: {}
+  };
 
   render() {
     const { 
@@ -60,7 +57,7 @@ export default class CitySelector extends Component {
       }} data={this.sortByFirstWord(AreasList, 'name')} />
     }
     
-    return <Modal animationType="slide" transparent={true} visible={showCitySelect}>
+    return <Modal animationType="none" transparent={true} visible={showCitySelect} onRequestClose={onCancel}>
     
       <View style={styles.modal}>
         <View style={styles.headerBox}>

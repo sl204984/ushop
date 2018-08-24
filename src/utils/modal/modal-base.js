@@ -10,7 +10,7 @@ export default class BaseModal extends Component {
     return (
       <Modal 
         visible={visible}
-        animationType="slide"
+        animationType="none"
         transparent
         onRequestClose={onRequestClose}
       >

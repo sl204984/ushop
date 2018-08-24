@@ -1,7 +1,7 @@
 // 底部导航
 import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import HomePage from '../home-page';
 import ShoppingMall from '../shopping-mall';
@@ -17,7 +17,7 @@ export default pageNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: '首页',
       tabBarIcon: ({ focused }) => (
-        <Icon name="ios-home" size={20} color={focused ? baseColor : blackGray} />
+        <Icon name="home-outline" size={20} color={focused ? baseColor : blackGray} />
       )
     }
   },
@@ -26,7 +26,7 @@ export default pageNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: '商城',
       tabBarIcon: ({ focused }) => (
-        <Icon name="ios-paw" size={20} color={focused ? baseColor : blackGray} />
+        <Icon name="paw" size={20} color={focused ? baseColor : blackGray} />
       )
     }
   },
@@ -35,7 +35,7 @@ export default pageNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: '发布',
       tabBarIcon: (({ focused }) => (
-        <Icon name="ios-add-circle" size={20} color={focused ? baseColor : blackGray} />
+        <Icon name="plus-circle-outline" size={20} color={focused ? baseColor : blackGray} />
       ))
     }
   },
@@ -44,7 +44,7 @@ export default pageNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: '聊天',
       tabBarIcon: ({ focused }) => (
-        <Icon name="ios-chatbubbles" size={20} color={focused ? baseColor : blackGray} />
+        <Icon name="comment-multiple-outline" size={20} color={focused ? baseColor : blackGray} />
       )
     }
   },
@@ -53,7 +53,7 @@ export default pageNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: '个人中心',
       tabBarIcon: ({ focused }) => (
-        <Icon name="ios-person" size={20} color={focused ? baseColor : blackGray} />
+        <Icon name="account-outline" size={20} color={focused ? baseColor : blackGray} />
       )
     }
   }

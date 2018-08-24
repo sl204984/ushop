@@ -14,24 +14,6 @@ import BaseModal from './modal-base';
 const { width } = Dimensions.get('window');
 
 export default class Popup extends Component {
-  
-  componentDidMount() {
-    const { onCancel } = this.props;
-    if(Platform.OS === 'android') {
-      BackHandler.addEventListener('hardwareBackPress', () => {
-        onCancel();
-      });
-    }
-  }
-
-  componentWillUnmount() {
-    const { onCancel } = this.props;
-    if(Platform.OS === 'android') {
-      BackHandler.removeEventListener('hardwareBackPress', () => {
-        onCancel();
-      });
-    }
-  }
 
   render() {
     const { visible, children, onCancel, title } = this.props;
