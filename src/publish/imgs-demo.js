@@ -13,9 +13,12 @@ import SyanImagePicker from 'react-native-syan-image-picker';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { lightGray, baseColor, white } from "../utils/common-styles";
+import { maxFiles } from './constant';
+
+const { width } = Dimensions.get('window');
 
 const options = {
-  imageCount: 6,          // 最大选择图片数目，默认6
+  imageCount: maxFiles,   // 最大选择图片数目，默认6
   isCamera: true,         // 是否允许用户在内部拍照，默认true
   isCrop: false,          // 是否允许裁剪，默认false
   CropW: ~~(width * 0.6), // 裁剪宽度，默认屏幕宽度60%
@@ -54,16 +57,8 @@ export default class ImgsDemo extends Component {
   }
 
   _selectImage = async () => {
-    console.log('aaaaaaaaa')
-    const { changeImgs, maxFiles } = this.props;
-    // ImagePicker.openPicker({
-    //   multiple: true,
-    //   mediaType: 'photo',
-    //   minFiles: 1,
-    //   maxFiles: maxFiles
-    // }).then(images => {
-    //   changeImgs(images);
-    // });
+    const { changeImgs } = this.props;
+    
     try {
       const photos = await SyanImagePicker.asyncShowImagePicker(options);
       console.log(photos);
@@ -81,8 +76,6 @@ export default class ImgsDemo extends Component {
     changeImgs(imgList);
   }
 }
-
-const { width } = Dimensions.get('window');
 
 const imgWidth = 60;
 const imgMargin = 5;

@@ -28,7 +28,8 @@ import LocationDetail from './location-detail';
 
 import { fetchQiniuToken, uploadImages, uploadShoppingInfo } from './api';
 
-const maxFiles = 5;
+import { maxFiles } from './constant';
+
 
 export default class PublishDemo extends Component {
   state = {
@@ -81,7 +82,6 @@ export default class PublishDemo extends Component {
           <ImgsDemo 
             imgList={imgList} 
             changeImgs={imgList => this.setState({ imgList })} 
-            maxFiles={maxFiles}
           />
 
           <Price 
@@ -245,7 +245,7 @@ export default class PublishDemo extends Component {
     }
     // 覆盖上传
     const sourceKeys = imgList.map((item, index) => {
-      const imgType = item.mime && item.mime.split('/')[1];
+      const imgType = item.uri && item.uri.split('/')[1];
       return index + '.' + (imgType || 'jpeg');
     });
     // 获取token
