@@ -110,6 +110,7 @@ class HomePage extends Component {
     await initDataList({
       pageSize, 
       pageNum: 0, 
+      type: curTabIndex,
       detail: [{
         start: 0,
         type: 1
