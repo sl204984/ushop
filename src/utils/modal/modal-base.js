@@ -56,13 +56,13 @@ export default class BaseModal extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: modalOpacityColor,
-    width,
-    height,
+    flex: 1,
+    width
   },
   animatedView: {
     position: 'absolute',
     width,
-    height,
+    height: '100%',
     alignItems: 'center',
     justifyContent: 'center'
   }

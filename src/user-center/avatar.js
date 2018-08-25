@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, Platform } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { baseColor, white } from '../utils/common-styles';
 // import ImagePicker from "react-native-image-picker";
+import SyanImagePicker from 'react-native-syan-image-picker';
 import Toast from 'react-native-root-toast';
 
 const AvatarImg = require('../local-imgs/lovely.jpeg');
+
+const { width, height } = Dimensions.get('window');
 
 // 选择图片配置项
 const ImagePickerOpt = {
@@ -18,6 +21,17 @@ const ImagePickerOpt = {
   }
 };
 
+const options = {
+  imageCount: 1,          // 最大选择图片数目，默认6
+  isCamera: true,         // 是否允许用户在内部拍照，默认true
+  isCrop: false,          // 是否允许裁剪，默认false
+  CropW: ~~(width * 0.6), // 裁剪宽度，默认屏幕宽度60%
+  CropH: ~~(width * 0.6), // 裁剪高度，默认屏幕宽度60%
+  isGif: false,           // 是否允许选择GIF，默认false，暂无回调GIF数据
+  showCropCircle: false,  // 是否显示圆形裁剪区域，默认false
+  showCropFrame: true,    // 是否显示裁剪区域，默认true
+  showCropGrid: false     // 是否隐藏裁剪区域网格，默认false
+};
 export default class Avatar extends Component {
   state = {
     avatar: '',

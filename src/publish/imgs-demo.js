@@ -8,7 +8,6 @@ import {
   Dimensions,
   TouchableOpacity
 } from 'react-native';
-// import ImagePicker from 'react-native-image-crop-picker';
 import SyanImagePicker from 'react-native-syan-image-picker';
 import Icon from 'react-native-vector-icons/Ionicons';
 

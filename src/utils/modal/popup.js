@@ -17,19 +17,21 @@ export default class Popup extends Component {
     const { visible, children, onCancel, title } = this.props;
     return (
       <BaseModal visible={visible} onRequestClose={onCancel}>
-        <View style={styles.container}>
-          <View style={styles.header}>
-            <View style={styles.dismiss} />
+        <View style={styles.outer}>
+          <View style={styles.container}>
+            <View style={styles.header}>
+              <View style={styles.dismiss} />
 
-            <View style={styles.headerTextBox}>
-              <Text style={styles.headerText}>{title || "头部"}</Text>
+              <View style={styles.headerTextBox}>
+                <Text style={styles.headerText}>{title || "头部"}</Text>
+              </View>
+              
+              <TouchableOpacity style={styles.dismiss} onPress={onCancel}>
+                <Text style={styles.dismissText}>取消</Text>
+              </TouchableOpacity>
             </View>
-            
-            <TouchableOpacity style={styles.dismiss} onPress={onCancel}>
-              <Text style={styles.dismissText}>取消</Text>
-            </TouchableOpacity>
+            { children }
           </View>
-          { children }
         </View>
       </BaseModal>
     )
@@ -38,10 +40,14 @@ export default class Popup extends Component {
 }
 
 const styles = StyleSheet.create({
+  outer: {
+    height: '100%',
+    flexDirection: 'row',
+    alignItems: 'flex-end'
+  },
   container: {
     width,
     height: 400,
-    marginTop: height - 400,
     backgroundColor: white,
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5
