@@ -18,90 +18,90 @@ export default class Recommend extends Component {
         <FlatList data={[
             {
               "publisher": "sl204984",
-              "avatar": "static/avatar/lovely.jpeg",
+              "avatar": "avatar/lovely.jpeg",
               "shoppingName": "学习用品",
-              "imgList": ["static/shopping/book.jpg", "static/shopping/lipstick.jpeg", "static/shopping/download.jpg", "static/shopping/download.jpg", "static/shopping/lipstick.jpeg", "static/shopping/lipstick.jpeg", "static/shopping/pen.jpeg", "static/shopping/lipstick.jpeg"],
+              "imgList": ["shopping/book.jpg", "shopping/lipstick.jpeg", "shopping/download.jpg", "shopping/download.jpg", "shopping/lipstick.jpeg", "shopping/lipstick.jpeg", "shopping/pen.jpeg", "shopping/lipstick.jpeg"],
               "location": "江苏南京",
               "price": 60,
               "point": 100,
               "key": "key-0.015409212120909066"
             }, {
               "publisher": "sl204984",
-              "avatar": "static/avatar/lovely.jpeg",
+              "avatar": "avatar/lovely.jpeg",
               "shoppingName": "学习用品",
-              "imgList": ["static/shopping/pen.jpeg", "static/shopping/lipstick.jpeg", "static/shopping/download.jpg", "static/shopping/fan.jpg", "static/shopping/pen.jpeg", "static/shopping/fan.jpg", "static/shopping/download.jpg", "static/shopping/pen.jpeg", "static/shopping/fan.jpg"],
+              "imgList": ["shopping/pen.jpeg", "shopping/lipstick.jpeg", "shopping/download.jpg", "shopping/fan.jpg", "shopping/pen.jpeg", "shopping/fan.jpg", "shopping/download.jpg", "shopping/pen.jpeg", "shopping/fan.jpg"],
               "location": "江苏南京",
               "price": 60,
               "point": 100,
               "key": "key-0.6313515688832319"
             }, {
               "publisher": "sl204984",
-              "avatar": "static/avatar/lovely.jpeg",
+              "avatar": "avatar/lovely.jpeg",
               "shoppingName": "学习用品",
-              "imgList": ["static/shopping/book.jpg", "static/shopping/lipstick.jpeg", "static/shopping/lipstick.jpeg", "static/shopping/book.jpg", "static/shopping/pen.jpeg", "static/shopping/pen.jpeg", "static/shopping/pen.jpeg", "static/shopping/pen.jpeg"],
+              "imgList": ["shopping/book.jpg", "shopping/lipstick.jpeg", "shopping/lipstick.jpeg", "shopping/book.jpg", "shopping/pen.jpeg", "shopping/pen.jpeg", "shopping/pen.jpeg", "shopping/pen.jpeg"],
               "location": "江苏南京",
               "price": 60,
               "point": 100,
               "key": "key-0.2759685649339936"
             }, {
               "publisher": "sl204984",
-              "avatar": "static/avatar/lovely.jpeg",
+              "avatar": "avatar/lovely.jpeg",
               "shoppingName": "学习用品",
-              "imgList": ["static/shopping/book.jpg", "static/shopping/download.jpg", "static/shopping/fan.jpg", "static/shopping/download.jpg", "static/shopping/download.jpg"],
+              "imgList": ["shopping/book.jpg", "shopping/download.jpg", "shopping/fan.jpg", "shopping/download.jpg", "shopping/download.jpg"],
               "location": "江苏南京",
               "price": 60,
               "point": 100,
               "key": "key-0.13840673100925915"
             }, {
               "publisher": "sl204984",
-              "avatar": "static/avatar/lovely.jpeg",
+              "avatar": "avatar/lovely.jpeg",
               "shoppingName": "学习用品",
-              "imgList": ["static/shopping/book.jpg", "static/shopping/download.jpg", "static/shopping/download.jpg", "static/shopping/pen.jpeg", "static/shopping/pen.jpeg"],
+              "imgList": ["shopping/book.jpg", "shopping/download.jpg", "shopping/download.jpg", "shopping/pen.jpeg", "shopping/pen.jpeg"],
               "location": "江苏南京",
               "price": 60,
               "point": 100,
               "key": "key-0.23058671315398005"
             }, {
               "publisher": "sl204984",
-              "avatar": "static/avatar/lovely.jpeg",
+              "avatar": "avatar/lovely.jpeg",
               "shoppingName": "学习用品",
-              "imgList": ["static/shopping/download.jpg", "static/shopping/lipstick.jpeg", "static/shopping/fan.jpg", "static/shopping/pen.jpeg", "static/shopping/pen.jpeg", "static/shopping/lipstick.jpeg", "static/shopping/fan.jpg", "static/shopping/download.jpg", "static/shopping/book.jpg"],
+              "imgList": ["shopping/download.jpg", "shopping/lipstick.jpeg", "shopping/fan.jpg", "shopping/pen.jpeg", "shopping/pen.jpeg", "shopping/lipstick.jpeg", "shopping/fan.jpg", "shopping/download.jpg", "shopping/book.jpg"],
               "location": "江苏南京",
               "price": 60,
               "point": 100,
               "key": "key-0.630424308681498"
             }, {
               "publisher": "sl204984",
-              "avatar": "static/avatar/lovely.jpeg",
+              "avatar": "avatar/lovely.jpeg",
               "shoppingName": "学习用品",
-              "imgList": ["static/shopping/fan.jpg", "static/shopping/download.jpg", "static/shopping/pen.jpeg", "static/shopping/fan.jpg", "static/shopping/book.jpg", "static/shopping/fan.jpg", "static/shopping/lipstick.jpeg", "static/shopping/book.jpg"],
+              "imgList": ["shopping/fan.jpg", "shopping/download.jpg", "shopping/pen.jpeg", "shopping/fan.jpg", "shopping/book.jpg", "shopping/fan.jpg", "shopping/lipstick.jpeg", "shopping/book.jpg"],
               "location": "江苏南京",
               "price": 60,
               "point": 100,
               "key": "key-0.11802392436875175"
             }, {
               "publisher": "sl204984",
-              "avatar": "static/avatar/lovely.jpeg",
+              "avatar": "avatar/lovely.jpeg",
               "shoppingName": "学习用品",
-              "imgList": ["static/shopping/book.jpg", "static/shopping/fan.jpg", "static/shopping/lipstick.jpeg", "static/shopping/pen.jpeg", "static/shopping/fan.jpg", "static/shopping/fan.jpg", "static/shopping/book.jpg", "static/shopping/pen.jpeg", "static/shopping/book.jpg"],
+              "imgList": ["shopping/book.jpg", "shopping/fan.jpg", "shopping/lipstick.jpeg", "shopping/pen.jpeg", "shopping/fan.jpg", "shopping/fan.jpg", "shopping/book.jpg", "shopping/pen.jpeg", "shopping/book.jpg"],
               "location": "江苏南京",
               "price": 60,
               "point": 100,
               "key": "key-0.9240868279675636"
             }, {
               "publisher": "sl204984",
-              "avatar": "static/avatar/lovely.jpeg",
+              "avatar": "avatar/lovely.jpeg",
               "shoppingName": "学习用品",
-              "imgList": ["static/shopping/fan.jpg", "static/shopping/book.jpg", "static/shopping/book.jpg", "static/shopping/fan.jpg", "static/shopping/pen.jpeg"],
+              "imgList": ["shopping/fan.jpg", "shopping/book.jpg", "shopping/book.jpg", "shopping/fan.jpg", "shopping/pen.jpeg"],
               "location": "江苏南京",
               "price": 60,
               "point": 100,
               "key": "key-0.29067344956149377"
             }, {
               "publisher": "sl204984",
-              "avatar": "static/avatar/lovely.jpeg",
+              "avatar": "avatar/lovely.jpeg",
               "shoppingName": "学习用品",
-              "imgList": ["static/shopping/fan.jpg", "static/shopping/book.jpg", "static/shopping/book.jpg", "static/shopping/fan.jpg", "static/shopping/lipstick.jpeg", "static/shopping/lipstick.jpeg"],
+              "imgList": ["shopping/fan.jpg", "shopping/book.jpg", "shopping/book.jpg", "shopping/fan.jpg", "shopping/lipstick.jpeg", "shopping/lipstick.jpeg"],
               "location": "江苏南京",
               "price": 60,
               "point": 100,
@@ -120,18 +120,18 @@ export default class Recommend extends Component {
     const { navigation } = this.props;
     return (
       <View style={styles.recommendItem}>
-      <GoodsItem 
-        shoppingName={item.shoppingName} 
-        price={item.price}
-        imgSrc={item.imgList[0]}
-        width={itemWidth}
-        onPress={() => {
-          navigation.push('GoodsDetail', {
-            goodsDetail: item
-          });
-        }}
-      />
-    </View>
+        <GoodsItem 
+          shoppingName={item.shoppingName} 
+          price={item.price}
+          imgSrc={item.imgList[0]}
+          width={itemWidth}
+          onPress={() => {
+            navigation.push('GoodsDetail', {
+              goodsDetail: item
+            });
+          }}
+        />
+      </View>
     )
   }
 }
