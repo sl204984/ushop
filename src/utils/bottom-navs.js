@@ -9,7 +9,7 @@ import Publish from '../publish';
 import Messages from '../messages';
 import UserCenter from '../user-center';
 
-import { baseColor, blackGray, darkGray } from "./common-styles";
+import { baseColor, darkGray } from "./common-styles";
 
 export default pageNavigator = createBottomTabNavigator({
   Home: {
