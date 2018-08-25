@@ -119,7 +119,8 @@ export default class PublishDemo extends Component {
           <TouchableOpacity style={styles.loginBox} onPress={this._upload}>
             <Text style={styles.loginText}>确定发布</Text>
           </TouchableOpacity>
-
+          
+          {/*遮罩*/}
           {
             !userInfo.userId ? 
               <TouchableOpacity style={styles.mask} onPress={this._loadUserInfo} /> : 
@@ -252,7 +253,6 @@ export default class PublishDemo extends Component {
     // 获取token
     const { res: qiniuRes } = await fetchQiniuToken({
       suffArr: sourceKeys,
-      userId: '',
       shoppingId: _shoppingId
     });
     const { shoppingId, tokenArr } = qiniuRes;
