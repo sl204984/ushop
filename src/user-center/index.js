@@ -21,7 +21,7 @@ export default class UserCenter extends Component {
     const { userInfo } = this.state;
     return (
       <ScrollView style={styles.container}>
-        <Avatar navigate={navigate} />
+        <Avatar userInfo={userInfo} />
         <Appreciate navigate={navigate} />
         <FeatureList navigate={navigate} />
         <Setting navigate={navigate} />
@@ -42,6 +42,7 @@ export default class UserCenter extends Component {
         autoSync: true,
         syncInBackground: true
       });
+      console.log(res);
       this.setState({ userInfo: res });
     } catch(err) {
       Alert.alert(

@@ -1,25 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { baseColor, white } from '../utils/common-styles';
-// import ImagePicker from "react-native-image-picker";
 import SyanImagePicker from 'react-native-syan-image-picker';
-import Toast from 'react-native-root-toast';
-
-const AvatarImg = require('../local-imgs/lovely.jpeg');
-
-const { width, height } = Dimensions.get('window');
-
-// 选择图片配置项
-const ImagePickerOpt = {
-  title: '选择图片',
-  cancelButtonTitle: '取消',
-  takePhotoButtonTitle: '拍照',
-  chooseFromLibraryButtonTitle: '从图库选择',
-  storageOptions: {
-    skipBackup: true,
-    path: 'images'
-  }
-};
+import CONFIG from '../utils/config';
+import { fetchQiniuToken, uploadImages } from './api';
+const { width } = Dimensions.get('window');
 
 const options = {
   imageCount: 1,          // 最大选择图片数目，默认6
@@ -34,44 +19,59 @@ const options = {
 };
 export default class Avatar extends Component {
   state = {
-    avatar: '',
-    isStatic: false
+    avatar: ''
   }
 
   render() {
-    const { avatar, isStatic } = this.state;
-    const _avatar = avatar ? { uri: avatar, isStatic } : AvatarImg;
+    const { userInfo } = this.props;
+    const { avatar } = this.state;
+    const _avatar = { uri: avatar ? avatar : CONFIG.IMG_HOST + userInfo.avatar };
     return (
       <View style={styles.container}>
         <View style={styles.avatarWrap}>
-          <TouchableOpacity  onPress={this._selectImg} >
+          <TouchableOpacity onPress={this._selectImg} >
             <Image style={styles.avatarImg} source={_avatar}/>
           </TouchableOpacity>
-          <Text style={styles.avatarText}>大浪浪</Text>
+          <Text style={styles.avatarText}>{ userInfo.nickname }</Text>
         </View>
       </View>
     );
   }
 
-  _selectImg = () => {
-    // showImagePicker ===> 弹出选择相机、相册框
-    // launchImageLibrary ===> 弹出相册
-    // ImagePicker.launchCamera 弹出相机
-    // ImagePicker.showImagePicker(ImagePickerOpt, response => {
-    //   if (response.error) {
-    //     Toast.show('选择图片失败，请重新选择', {
-    //       position: Toast.positions.CENTER
-    //     });
-    //   } else if (!response.didCancel) {
-    //     if (Platform.OS === 'android') {
-    //       this.setState({ avatar: response.uri, isStatic: true });
-    //     } else {
-    //       this.setState({ avatar: response.uri.replace('file://', ''), isStatic: true });
-    //     }
-    //     // You can also display the image using data:
-    //     // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-    //   }
-    // });
+  _selectImg = async () => {
+    const { userInfo } = this.props;
+    try {
+      const photos = await SyanImagePicker.asyncShowImagePicker(options);
+      const uri = photos[0].uri;
+      const uriStr = uri ? uri.split('.') : []; 
+      const imgType = uriStr[uriStr.length - 1] || 'jpeg';
+      // 从七牛获取token
+      const { res: qiniuRes } = await fetchQiniuToken({
+        sourceKey: userInfo.userId + '.' + imgType
+      });
+      // 
+      const file = {
+        key: qiniuRes.key,
+        token: qiniuRes.token,
+        file: { 
+          uri: uri,
+          type: 'multipart/form-data'
+        },
+        'x:userId': userInfo.userId
+      };
+      const { err } = await uploadImages(file);
+      if(err) {
+        Toast.show('图片上传失败，请重新上传~', {
+          position: Toast.positions.CENTER
+        });
+        return;
+      }
+      
+      await this.setState({ avatar: photos[0].uri });
+      // 选择成功
+    } catch (err) {
+      // 取消选择，err.message为"取消"
+    }
   }
 }
 
