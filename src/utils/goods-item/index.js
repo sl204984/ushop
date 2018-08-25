@@ -2,7 +2,7 @@
  * 商铺 @author sl204984
  * */ 
 import React from "react";
-import { View, Text, StyleSheet, Image, ScrollView, Dimensions, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import { gray, colorhot, lightGray, baseColor } from '../common-styles';
 import CONFIG from '../config';
 const AvatarImg = require('../../local-imgs/lovely.jpeg');
@@ -10,10 +10,6 @@ const AvatarImg = require('../../local-imgs/lovely.jpeg');
 const { width } = Dimensions.get('window');
 
 export default class GoodsItem extends React.Component {
-
-  state = {
-    dealTouchEvent: true
-  }
 
   render() {
     const { 
@@ -23,7 +19,8 @@ export default class GoodsItem extends React.Component {
       price,
       imgList,
       shoppingName,
-      location
+      location,
+      onPress
     } = this.props;
     const _avatar = avatar ? { uri: CONFIG.IMG_HOST + avatar } : AvatarImg;
     return (
@@ -43,16 +40,18 @@ export default class GoodsItem extends React.Component {
         </View>
 
         <ScrollView 
-          style={styles.scrollView} 
           horizontal 
           showsHorizontalScrollIndicator={false}
-          onTouchMove={this._onTouchMove}
-          onTouchEnd={this._onTouchEnd}
         >
-          {imgList.map((item, index) => {
-            const imgSrc = CONFIG.IMG_HOST + item;
-            return <Image key={index} source={{uri: imgSrc}} style={styles.img} />
-          })}
+          <TouchableOpacity 
+            style={styles.imgBox} 
+            onPress={onPress}
+          >
+            {imgList.map((item, index) => {
+              const imgSrc = CONFIG.IMG_HOST + item;
+              return <Image key={index} source={{uri: imgSrc}} style={styles.img} />
+            })}
+          </TouchableOpacity>
         </ScrollView>
 
         <View style={styles.shoppingName} >
@@ -71,37 +70,22 @@ export default class GoodsItem extends React.Component {
     )
   }
 
-  _onTouchMove = () => {
-    const { dealTouchEvent } = this.state;
-    dealTouchEvent && 
-      this.setState({ dealTouchEvent: false });
-  }
-
-  _onTouchEnd = () => {
-    const { dealTouchEvent } = this.state;
-    if(!dealTouchEvent) {
-      this.setState({ dealTouchEvent: true });
-    } else {
-      // todo 路由跳转
-      typeof this.props.onPress === 'function' 
-        && this.props.onPress();
-    }
-  }
 }
 
+const containerPadding = 10;
 const styles = StyleSheet.create({
   itemContainer: {
     width: width,
     marginBottom: 20,
     backgroundColor: 'white',
-    paddingTop: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
+    paddingTop: containerPadding,
+    paddingLeft: containerPadding,
+    paddingRight: containerPadding,
   },
 
   headerBox: {
     flexDirection: 'row',
-    marginBottom: 10,
+    marginBottom: containerPadding,
     alignItems: 'center',
   },
   avator: {
@@ -128,8 +112,9 @@ const styles = StyleSheet.create({
     fontSize: 18
   },
 
-  scrollView: {
-
+  imgBox: {
+    flexDirection: 'row',
+    minWidth: width - containerPadding * 2,
   },
   img: {
     width: 120,
@@ -137,15 +122,15 @@ const styles = StyleSheet.create({
     margin: 5
   },
   shoppingName: {
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingTop: containerPadding,
+    paddingBottom: containerPadding,
     borderBottomWidth: 1,
     borderBottomColor: lightGray
   },
 
   locationBox: {
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingTop: containerPadding,
+    paddingBottom: containerPadding,
     flexDirection: 'row',
     justifyContent: 'flex-end'
   },

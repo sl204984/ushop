@@ -26,7 +26,7 @@ export default class ImgSwiper extends Component {
           }}
         >
           {imgList.map((item, index) => (
-            <Image source={{ uri: CONFIG.IMG_HOST + item }} key={index} style={styles.imageWrap} resizeMode="stretch" />
+            <Image source={{ uri: CONFIG.IMG_HOST + item }} key={index} style={styles.imageWrap} />
           ))}
         </Swiper>
         <View style={styles.pagination}>
