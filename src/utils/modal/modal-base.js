@@ -4,10 +4,12 @@ import { modalOpacityColor } from '../common-styles';
 
 const { width, height } = Dimensions.get('window');
 
+const heightHalf = height * 1.3;
+
 export default class BaseModal extends Component {
 
   state = {
-    slideAnim: new Animated.Value(height)
+    slideAnim: new Animated.Value(heightHalf)
   }
 
   componentWillReceiveProps(newProps) {
@@ -16,12 +18,12 @@ export default class BaseModal extends Component {
         this.state.slideAnim,
         {
           toValue: 0,
-          duration: 300
+          duration: 500
         }
       ).start();
     } else {
       this.setState({
-        slideAnim: new Animated.Value(height)
+        slideAnim: new Animated.Value(heightHalf)
       })
     }
   }
@@ -32,9 +34,10 @@ export default class BaseModal extends Component {
     return (
       <Modal 
         visible={!!visible}
-        animationType="none"
+        animationType="fade"
         transparent
         onRequestClose={onRequestClose}
+        hardwareAccelerated
       >
         <View style={styles.container}>
           <Animated.View style={{
