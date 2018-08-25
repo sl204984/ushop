@@ -11,7 +11,6 @@ export default class BaseModal extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    console.log('newProps.visible', newProps.visible);
     if(newProps.visible) {
       Animated.timing(
         this.state.slideAnim,
@@ -20,6 +19,10 @@ export default class BaseModal extends Component {
           duration: 300
         }
       ).start();
+    } else {
+      this.setState({
+        slideAnim: new Animated.Value(height)
+      })
     }
   }
 
@@ -28,7 +31,7 @@ export default class BaseModal extends Component {
     const { visible, children, onRequestClose } = this.props;
     return (
       <Modal 
-        visible={visible}
+        visible={!!visible}
         animationType="none"
         transparent
         onRequestClose={onRequestClose}
@@ -57,6 +60,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width,
     height,
-    flexDirection: 'row'
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 })

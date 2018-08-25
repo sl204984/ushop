@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { modalBg, baseColor, gray } from '../common-styles';
+import { baseColor, gray } from '../common-styles';
+import { BaseModal } from '../modal';
 // 数据
 import { Proviences } from './proviences';
 import { Cities } from './cities';
@@ -56,10 +57,9 @@ export default class CitySelector extends Component {
         typeof onOk === 'function' && onOk(provience.name + city.name + selected.name );
       }} data={this.sortByFirstWord(AreasList, 'name')} />
     }
-    
-    return <Modal animationType="none" transparent={true} visible={showCitySelect} onRequestClose={onCancel}>
-    
-      <View style={styles.modal}>
+
+    return (
+      <BaseModal visible={showCitySelect} onRequestClose={onCancel}>
         <View style={styles.headerBox}>
           <View style={styles.header}>
             <Text style={styles.headerText}>{
@@ -87,8 +87,8 @@ export default class CitySelector extends Component {
 
         {curTab}
 
-      </View>
-    </Modal>
+      </BaseModal>
+    )
   }
 
   sortByFirstWord(dataList, key) {
@@ -100,10 +100,8 @@ export default class CitySelector extends Component {
 }
 
 const styles = StyleSheet.create({
-  modal: Object.assign(modalBg.toJS(), {
-    paddingTop: 80
-  }),
   headerBox: {
+    marginTop: 80,
     width: '100%',
     backgroundColor: 'white',
     height: 50,

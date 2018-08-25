@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { narrowRow, textGrayColor, lightGray } from '../utils/common-styles';
+import { narrowRow, textGrayColor } from '../utils/common-styles';
 
 export const rowStyles = StyleSheet.create({
   row: narrowRow.toJS(),

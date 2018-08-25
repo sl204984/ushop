@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-import { modalBg } from '../utils/common-styles';
+import { BaseModal } from '../utils/modal';
 
 export default class GenderSelect extends Component {
   constructor(props) {
@@ -10,21 +10,20 @@ export default class GenderSelect extends Component {
 
   render() {
     const { showGenderSelect, selectGender } = this.props;
-    return <Modal animationType="slide" transparent={true} visible={showGenderSelect}>
-      <View style={styles.modal}>
+    return (
+      <BaseModal transparent={true} visible={showGenderSelect}>
         <TouchableOpacity style={styles.selectItem} onPress={() => { selectGender('男'); }}>
           <Text>男</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.selectItem} onPress={() => { selectGender('女'); }}>
           <Text>女</Text>
         </TouchableOpacity>
-      </View>
-    </Modal>
+      </BaseModal>
+    )
   }
 }
 
 const styles = StyleSheet.create({
-  modal: modalBg.toJS(),
   selectItem: {
     backgroundColor: 'white',
     width: '90%',

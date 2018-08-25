@@ -4,14 +4,12 @@ import {
   View, 
   Text, 
   Dimensions, 
-  TouchableOpacity, 
-  Platform, 
-  BackHandler 
+  TouchableOpacity
 } from 'react-native';
 import { white, lightGray, gray } from '../common-styles';
 import BaseModal from './modal-base';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 export default class Popup extends Component {
 
@@ -43,8 +41,8 @@ const styles = StyleSheet.create({
   container: {
     width,
     height: 400,
+    marginTop: height - 400,
     backgroundColor: white,
-    alignSelf: 'flex-end',
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5
   },

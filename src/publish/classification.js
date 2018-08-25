@@ -40,7 +40,9 @@ export default class Classification extends Component {
           <ScrollView contentContainerStyle={styles.contentContainer}>
             {TabList.delete(0).map((item, index) => (
               <View style={styles.dialogRow} key={'tab-list-' + index}>
-                <View style={styles.tabList}>
+                <TouchableOpacity style={styles.tabList} onPress={() => {
+                  this._changeType(item.get('value'));
+                }}>
                   <Text>{ item.get('label') }</Text>
                   <CheckBox 
                     value={ item.get('value') === value }
@@ -48,7 +50,7 @@ export default class Classification extends Component {
                       this._changeType(item.get('value'));
                     }}
                   />
-                </View>
+                </TouchableOpacity>
               </View>
             )).toArray()}
             

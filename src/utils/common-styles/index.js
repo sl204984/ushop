@@ -81,13 +81,3 @@ export const narrowRow = fromJS(Object.assign(row.toJS(), {
   borderBottomWidth: 0,
   justifyContent: 'space-between'
 }));
-
-
-// 模态框
-export const modalBg = fromJS({
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: '100%',
-  backgroundColor: modalOpacityColor
-});
-
