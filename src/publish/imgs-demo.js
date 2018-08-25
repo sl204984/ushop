@@ -60,7 +60,6 @@ export default class ImgsDemo extends Component {
     
     try {
       const photos = await SyanImagePicker.asyncShowImagePicker(options);
-      console.log(photos);
       changeImgs(photos);
       // 选择成功
     } catch (err) {
