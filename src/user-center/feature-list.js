@@ -37,12 +37,12 @@ export default class FeatureList extends Component {
       onPress: () => {
         navigate('MyCollectionList');
       }
-    }, {
+    }, /*{
       label: '我的余额',
-      count:  1000000000.123,
+      count:  0,
       icon: <Icon name="money" size={20} style={styles.preIcon} color={gray} />,
       onPress: () => {
-        navigate('MyBalance', {balance: 1000000000.123});
+        navigate('MyBalance', {balance: 0});
       }
     }, {
       label: '我的优惠券',
@@ -57,7 +57,7 @@ export default class FeatureList extends Component {
       onPress: () => {
         navigate('SignIn')
       }
-    }]
+    }*/]
   }
 
   render() {
